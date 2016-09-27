@@ -1,0 +1,18 @@
+
+  <% @task_list.each do |t| %>
+    <ul>
+      <% t.each do |task, v| %>
+        <% if task == :name %>
+        <lh><%= v %></lh>
+        <% else %>
+          <li><%= sprintf("%s: %s",task.to_s, v) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+
+<ul>
+  <% @task_list.each do |t| %>
+    <li><%= t[:name] %></li>
+  <% end %>
+</ul>
