@@ -6,12 +6,15 @@ module TasksHelper
   end
 
   def show_status
-    content_tag(:p) do
-      @this_task[:completion_status]
+    if @this_task[:completed]
+      content_tag(:p) do
+        "Completed: " + @this_task[:completed_at].to_s
+      end
+    else
+      content_tag(:p) do
+        "Not Yet Completed"
+      end
     end
   end
 
-  def show_date
-    @this_task[:completion_date].to_s
-  end
 end

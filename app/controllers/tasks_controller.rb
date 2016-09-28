@@ -6,6 +6,5 @@ class TasksController < ApplicationController
 
   def show
     @this_task = Task.find(params[:id])
-
   end
 end

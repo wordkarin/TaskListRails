@@ -1,10 +1,7 @@
 <%= content_tag(:h1) do
-  @this_task[:name]
+  @this_task[:title]
   end %>
 
-<%= content_tag(:h2) do
-  "Due Date: " + show_date  
-end %>
 <ul>
   <li>
     <%= show_description %>
