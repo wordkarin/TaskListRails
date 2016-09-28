@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   root 'tasks#index'
   get '/tasks' => 'tasks#index'
   get '/tasks/:id', to: 'tasks#show', as: 'task'
+  post '/tasks' => 'tasks#create'
+
+# Set up necessary controller(s) and route(s) that you will need in order to show a task from the database
+
+# Create a root route for your application that directs users to the list of all tasks
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
