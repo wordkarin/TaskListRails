@@ -5,15 +5,16 @@ module TasksHelper
     end
   end
 
-  def show_status
-    if @this_task[:completed]
+  def show_status(task)
+    # Want to think about how I can get this to work on both the show page and the index page. On index, I don't have instances of each task? Maybe by having show status take a parameter of which task it is.
+    if task[:completed]
       content_tag(:p) do
-        "Completed: " + @this_task[:completed_at].to_s
+        "Completed: " + task[:completed_at].to_s
       end
     else
       # label_tag do
       #   concat check_box_tag 'completed'
-      form_tag '/task' do
+      form_tag ('/task/' + task[:id].to_s) do
         submit_tag 'Completed!'
       end
     end

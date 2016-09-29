@@ -5,6 +5,11 @@
   <% @task_list.each do |t| %>
     <li>
       <%= link_to(t[:title], task_path(t)) %>
+      <ul>
+        <li>
+          <%= show_status(t) %>
+        </li>
+      </ul>
     </li>
   <% end %>
 </ul>
