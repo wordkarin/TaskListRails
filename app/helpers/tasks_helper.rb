@@ -20,4 +20,16 @@ module TasksHelper
     end
   end
 
+  def delete_task(task)
+    # Add a route and controller action whose responsibility is deleting a task (RESTful routes)
+
+    form_tag "/task/#{task[:id]}", method: :delete do
+      submit_tag 'Delete Task', data: {confirm: "Are you sure you want to delete this task?"}
+    end
+  end
+
+  def confirm_delete(task)
+    # <%= link_to "Do something", {:controller => "foo", :action => "bar"}, :confirm => "Are you sure you want to do that?" %>
+  end
+
 end

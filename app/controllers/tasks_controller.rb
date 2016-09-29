@@ -26,6 +26,12 @@ class TasksController < ApplicationController
 
     redirect_to task_path(params[:id])
   end
-end
 
-# create a controller for your Tasks
+  def delete
+    @deleting_task = Task.find(params[:id])
+
+    @deleting_task.destroy
+
+    redirect_to root_path
+  end
+end
