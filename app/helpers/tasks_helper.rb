@@ -14,7 +14,7 @@ module TasksHelper
     else
       # label_tag do
       #   concat check_box_tag 'completed'
-      form_tag ('/task/' + task[:id].to_s) do
+      form_tag "/task/#{task[:id]}", method: :patch do
         submit_tag 'Completed!'
       end
     end
