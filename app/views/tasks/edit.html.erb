@@ -1,0 +1,13 @@
+<h2>Edit Task <%= @task.title %></h2> 
+<%= form_for @task, method: :patch do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :completed %>
+  <%= f.check_box :completed %>
+  <!-- TODO: Need to write path/action for when someone unchecks a completed item, including resetting the completed_at time. -->
+  <%= f.submit "Update Task" %>
+<% end %>
