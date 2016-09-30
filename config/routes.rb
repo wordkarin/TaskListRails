@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   root 'tasks#index'
   get '/tasks' => 'tasks#index'
-  get '/tasks/:id', to: 'tasks#show', as: 'task'
+  get 'tasks/new' => 'tasks#new'
   post '/tasks' => 'tasks#create'
-  patch '/task/:id' => 'tasks#completed'
-  delete '/task/:id' => 'tasks#delete'
+
+  get '/tasks/:id', to: 'tasks#show', as: 'task'
+  patch '/task/:id/completed' => 'tasks#completed'
+
+  delete '/task/:id' => 'tasks#destroy'
 
 # Set up necessary controller(s) and route(s) that you will need in order to show a task from the database
 

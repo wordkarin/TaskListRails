@@ -1,4 +1,13 @@
 module TasksHelper
+  def add_new_task
+    content_tag(:h2) do
+      "Add a new task"
+    end
+    form_tag 'tasks/new'
+    #some code here to generate the form for a new task. title, description, etc.
+    submit_tag "Make new task!"
+  end
+
   def show_description
     content_tag(:p) do
       @this_task[:description]
@@ -14,22 +23,19 @@ module TasksHelper
     else
       # label_tag do
       #   concat check_box_tag 'completed'
-      form_tag "/task/#{task[:id]}", method: :patch do
+      form_tag "/task/#{task[:id]}/completed", method: :patch do
         submit_tag 'Completed!'
       end
     end
   end
 
-  def delete_task(task)
+  def destroy_task(task)
     # Add a route and controller action whose responsibility is deleting a task (RESTful routes)
+    # On the home page, add a button or link for each task that will, once clicked...
 
     form_tag "/task/#{task[:id]}", method: :delete do
       submit_tag 'Delete Task', data: {confirm: "Are you sure you want to delete this task?"}
     end
-  end
-
-  def confirm_delete(task)
-    # <%= link_to "Do something", {:controller => "foo", :action => "bar"}, :confirm => "Are you sure you want to do that?" %>
   end
 
 end

@@ -8,6 +8,10 @@ class TasksController < ApplicationController
     @this_task = Task.find(params[:id])
   end
 
+  def new
+    @task = Task.new
+  end
+
   def create
     new_task = Task.new
     new_task.title = params[:title]
@@ -27,7 +31,8 @@ class TasksController < ApplicationController
     redirect_to task_path(params[:id])
   end
 
-  def delete
+  def destroy
+  # Delete the task from the database and redirect the user back to the list of remaining tasks.
     @deleting_task = Task.find(params[:id])
 
     @deleting_task.destroy
