@@ -10,8 +10,13 @@
     <%= show_status(@this_task) %>
   </li>
   <li>
+    <%= button_to "Edit task", task_edit_path, method: :get %>
+  </li>
+  <li>
     <%= destroy_task(@this_task) %>
   </li>
 </ul>
+
+<%= link_to "Go back to list of tasks", root_path %>
 
 <!-- The show view should include the complete information about the task: name, description, completion status, and completion date. -->
