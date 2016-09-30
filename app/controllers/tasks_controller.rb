@@ -26,7 +26,10 @@ class TasksController < ApplicationController
   end
 
   def update
-
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    # TODO: can add in here the if statement for when update fails.
+    redirect_to task_path
   end
 
   def completed
@@ -46,5 +49,13 @@ class TasksController < ApplicationController
     @deleting_task.destroy
 
     redirect_to root_path
+  end
+
+  private
+
+  def task_params
+    #TODO: is this where completed_at gets set to nil if the user unchecks the completed box?
+    params.require(:task).permit(:title, :description, :completed)
+
   end
 end
