@@ -27,19 +27,26 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    if task_params[:completed]
+      set_as_completed
+    else
+      task_params[:completed_at] = nil
+    end
+
     @task.update(task_params)
     # TODO: can add in here the if statement for when update fails.
     redirect_to task_path
   end
 
+
   def completed
-    completed_task = Task.find(params[:id])
-    completed_task.completed = true
-    completed_task.completed_at = DateTime.now
+    @task = Task.find(params[:id])
+    set_as_completed
+    @task.save
 
-    completed_task.save
-
-    redirect_to task_path(params[:id])
+    #this stores the current page in the session hash, so that I can then redirect to the same page that this completed action is called from. It also cleans it up by deleting it after it's done. 
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to)
   end
 
   def destroy
@@ -52,10 +59,15 @@ class TasksController < ApplicationController
   end
 
   private
+  def set_as_completed
+    #I'm only calling this from the update and completed controller actions.
+    @task.completed = true
+    @task.completed_at = DateTime.now
+  end
 
   def task_params
     #TODO: is this where completed_at gets set to nil if the user unchecks the completed box?
-    params.require(:task).permit(:title, :description, :completed)
+    params.require(:task).permit(:title, :description, :completed, :completed_at)
 
   end
 end

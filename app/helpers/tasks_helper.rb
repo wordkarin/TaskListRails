@@ -24,7 +24,12 @@ module TasksHelper
       # label_tag do
       #   concat check_box_tag 'completed'
       form_tag "/task/#{task[:id]}/completed", method: :patch do
-        submit_tag 'Completed!'
+        label_tag do
+          concat check_box_tag 'Completed'
+        # check_box_tag :completed
+          concat submit_tag 'Completed'
+        # submit_tag "Submit"
+        end
       end
     end
   end
