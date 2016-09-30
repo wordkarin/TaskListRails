@@ -2,7 +2,7 @@
 <!-- Be able to create a new task:
 The home page should contain a link to Add a new task. This will give the user a form to fill out with the appropriate task fields.
 After the new task is added, the site should take the user back to the home page which displays the full list of tasks. The new task that was just added should be included in the full list of tasks. -->
-<div class="new_task">
+<div class="new-task">
   <!-- TODO: I can probably pull this out into a helper also, or at least use the form_for tags. -->
   <h2>Add a new task</h2>
   <form class="" action="/tasks" method="post" accept-charset="utf-8">
@@ -18,7 +18,7 @@ After the new task is added, the site should take the user back to the home page
   </form>
 </div>
 <!-- Each task name in the list should link to a show action that will render a new view for the user. -->
-
+<div class="task-list">
 <h2>Existing Tasks</h2>
 <table>
   <% @tasks.each do |t| %>
@@ -38,3 +38,4 @@ After the new task is added, the site should take the user back to the home page
     </tr>
   <% end %>
 </table>
+</div>

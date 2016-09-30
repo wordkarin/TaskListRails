@@ -26,7 +26,7 @@ module TasksHelper
 
     if task[:completed]
       content_tag(:p) do
-        "Completed: " + task[:completed_at].to_s
+        "Completed: " +  task[:completed_at].to_s
       end
     else
       # label_tag do

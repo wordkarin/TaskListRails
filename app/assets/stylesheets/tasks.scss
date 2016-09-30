@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  font-family: sans-serif;
+}
+
 td {
   border: black thin solid;
+}
+
+.new-task {
+  background-color: pink;
+  padding: 0.5px 10px 10px 10px;
+  border-radius: 15px;
+}
+
+.task-list {
+  background: #91d6e2;
+  padding: 0.5px 10px 10px 10px;
+  border-radius: 15px;
 }
