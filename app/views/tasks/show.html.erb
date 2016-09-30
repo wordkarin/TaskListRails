@@ -1,21 +1,27 @@
-<%= content_tag(:h1) do
+<div class="task">
+<%= content_tag(:h2) do
   @this_task[:title]
   end %>
 
-<ul>
-  <li>
-    <%= show_description %>
-  </li>
-  <li>
-    <%= show_status(@this_task) %>
-  </li>
-  <li>
-    <%= edit_task(@this_task) %>
-  </li>
-  <li>
-    <%= destroy_task(@this_task) %>
-  </li>
-</ul>
+  <table>
+      <tr>
+        <td>
+          <%= @this_task[:description] %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= show_status(@this_task) %>
+        </td>
+        <td>
+          <%= edit_task(@this_task) %>
+        </td>
+        <td>
+          <%= destroy_task(@this_task) %>
+        </td>
+      </tr>
+  </table>
+</div>
 
 <%= link_to "Go back to list of tasks", root_path %>
 

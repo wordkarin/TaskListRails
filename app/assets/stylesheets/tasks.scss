@@ -6,7 +6,7 @@ body {
   font-family: sans-serif;
 }
 
-td {
+.task-list td {
   border: black thin solid;
 }
 
@@ -14,10 +14,12 @@ td {
   background-color: pink;
   padding: 0.5px 10px 10px 10px;
   border-radius: 15px;
+  width: 70%;
 }
 
-.task-list {
-  background: #91d6e2;
+.task-list, .task {
+  background: linear-gradient( 45deg, #33cccc, #ffb3ff);
   padding: 0.5px 10px 10px 10px;
   border-radius: 15px;
+  width: 70%;
 }

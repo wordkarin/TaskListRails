@@ -1,3 +1,4 @@
+<div class="task">
 <h2>Edit Task <%= @task.title %></h2>
 <%= form_for @task, method: :patch do |f| %>
   <%= f.label :title %>
@@ -11,3 +12,4 @@
 
   <%= f.submit "Update Task" %>
 <% end %>
+</div>
