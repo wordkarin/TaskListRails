@@ -16,6 +16,14 @@ module TasksHelper
 
   def show_status(task)
     # Want to think about how I can get this to work on both the show page and the index page. On index, I don't have instances of each task? Maybe by having show status take a parameter of which task it is.
+    # form_tag "/task/#{task[:id]}/completed", method: :patch do
+    #   if task[:completed]
+    #     check_box_tag('completed',true, false, :onclick => "javascript: document.list.submit();")
+    #   else
+    #     check_box_tag('completed',false, true, :onclick => "javascript: document.list.submit();")
+    #   end
+    # end
+
     if task[:completed]
       content_tag(:p) do
         "Completed: " + task[:completed_at].to_s
@@ -25,13 +33,15 @@ module TasksHelper
       #   concat check_box_tag 'completed'
       form_tag "/task/#{task[:id]}/completed", method: :patch do
         label_tag do
-          concat check_box_tag 'Completed'
-        # check_box_tag :completed
-          concat submit_tag 'Completed'
-        # submit_tag "Submit"
+          concat check_box_tag 'Task completed'
+          concat submit_tag 'Task completed'
         end
       end
     end
+  end
+
+  def edit_task(task)
+    button_to "Edit task", task_edit_path(task), method: :get
   end
 
   def destroy_task(task)

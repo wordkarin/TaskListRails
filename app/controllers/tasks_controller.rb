@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   def index
     # render :index is the default behavior.
-    @task_list = Task.all
+    @tasks = Task.order('completed ASC', 'completed_at DESC', 'created_at DESC')
   end
 
   def show
@@ -44,7 +44,7 @@ class TasksController < ApplicationController
     set_as_completed
     @task.save
 
-    #this stores the current page in the session hash, so that I can then redirect to the same page that this completed action is called from. It also cleans it up by deleting it after it's done. 
+    #this stores the current page in the session hash, so that I can then redirect to the same page that this completed action is called from. It also cleans it up by deleting it after it's done.
     session[:return_to] ||= request.referer
     redirect_to session.delete(:return_to)
   end

@@ -1,22 +1,4 @@
 <h1> Tasks! </h1>
-<!-- Each task name in the list should link to a show action that will render a new view for the user. -->
-
-<table>
-  <% @task_list.each do |t| %>
-    <tr>
-      <td>
-        <%= show_status(t) %>
-      </td>
-      <td>
-        <%= link_to(t[:title], task_path(t)) %>
-      </td>
-      <td>
-        <%= destroy_task(t) %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
 <!-- Be able to create a new task:
 The home page should contain a link to Add a new task. This will give the user a form to fill out with the appropriate task fields.
 After the new task is added, the site should take the user back to the home page which displays the full list of tasks. The new task that was just added should be included in the full list of tasks. -->
@@ -35,3 +17,24 @@ After the new task is added, the site should take the user back to the home page
     <input type="submit" value="Submit">
   </form>
 </div>
+<!-- Each task name in the list should link to a show action that will render a new view for the user. -->
+
+<h2>Existing Tasks</h2>
+<table>
+  <% @tasks.each do |t| %>
+    <tr>
+      <td>
+        <%= show_status(t) %>
+      </td>
+      <td>
+        <%= link_to(t[:title], task_path(t)) %>
+      </td>
+      <td>
+        <%= edit_task(t) %>
+      </td>
+      <td>
+        <%= destroy_task(t) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
