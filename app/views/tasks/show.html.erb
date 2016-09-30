@@ -3,12 +3,11 @@
   @this_task[:title]
   end %>
 
+  <%= content_tag(:p) do
+    @this_task[:description]
+    end %>
+
   <table>
-      <tr>
-        <td>
-          <%= @this_task[:description] %>
-        </td>
-      </tr>
       <tr>
         <td>
           <%= show_status(@this_task) %>
