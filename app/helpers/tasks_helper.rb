@@ -41,14 +41,14 @@ module TasksHelper
   end
 
   def edit_task(task)
-    button_to "Edit task", task_edit_path(task), method: :get
+    button_to "Edit task", edit_task_path(task), method: :get
   end
 
   def destroy_task(task)
     # Add a route and controller action whose responsibility is deleting a task (RESTful routes)
     # On the home page, add a button or link for each task that will, once clicked...
 
-    form_tag "/task/#{task[:id]}", method: :delete do
+    form_tag "/tasks/#{task[:id]}", method: :delete do
       submit_tag 'Delete Task', data: {confirm: "Are you sure you want to delete this task?"}
     end
   end
