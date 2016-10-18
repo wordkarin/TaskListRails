@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+header {
+  background: linear-gradient( 45deg, #33cccc, #ffb3ff);
+  width: 70%;
+  position: relative;
+  padding: 10px;
+}
+
+header h1, header p {
+  color: white;
+}
+
 body {
   font-family: sans-serif;
 }

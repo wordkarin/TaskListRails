@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#create"
 
+  delete "/sessions", to: "sessions#destroy", as: "logout"
 
 # Set up necessary controller(s) and route(s) that you will need in order to show a task from the database
 
