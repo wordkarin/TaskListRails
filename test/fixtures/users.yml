@@ -9,7 +9,7 @@ grace:
   email: "grace.hooper@adadevelopersacedemy.org"
   uid: 12345
   provider: "github"
-no_tasks_user:
+no_tasks:
   name: "No Tasks"
   email: "no_tasks@gmail.com"
   uid: 67890

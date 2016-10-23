@@ -3,8 +3,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  # fixtures :all
+  # Will need to add tasks in here (or change to 'fixtures :all')
+  fixtures :users
 
   def setup
     # Once you have enabled test mode, all requests
