@@ -9,6 +9,11 @@ grace:
   email: "grace.hooper@adadevelopersacedemy.org"
   uid: 12345
   provider: "github"
+not_grace:
+  name: Ada!
+  email: ada@adadevelopersacedemy.org
+  uid: 11111
+  provider: "github"
 no_tasks:
   name: "No Tasks"
   email: "no_tasks@gmail.com"

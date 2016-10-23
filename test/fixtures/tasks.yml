@@ -12,3 +12,9 @@ two:
   completed_at: <%= 2.days.ago %>
   completed: true
   user: grace
+
+three:
+  title: Not Grace's.
+  description: Nope. She shouldn't be able to see.
+  completed: false
+  user: not_grace 
