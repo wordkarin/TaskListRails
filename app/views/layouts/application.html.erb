@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1> Tasks! </h1>
-      <table>
+      <table class="login">
         <tr>
           <!-- If not logged in -->
           <% if session[:user_id].nil? %>
@@ -25,7 +25,7 @@
           </td>
           <% end %>
         </tr>
-      </table> 
+      </table>
   </header>
 
 <%= yield %>
