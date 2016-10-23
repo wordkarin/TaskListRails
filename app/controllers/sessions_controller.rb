@@ -1,4 +1,13 @@
 class SessionsController < ApplicationController
+skip_before_action :require_login, only: [:login, :create, :welcome]
+
+  def welcome
+    # if the user is already logged in and tres to go to the root path, redirect them to tasks homepage. 
+    if session[:user_id]
+      redirect_to tasks_path
+    end
+  end
+
   def create
     auth_hash = request.env['omniauth.auth']
     redirect to login_failure_path unless auth_hash['uid']

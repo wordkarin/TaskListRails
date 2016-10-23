@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'tasks#index'
+  root "sessions#welcome"
+  # root "tasks#index"
   # get '/tasks' => 'tasks#index'
   # post '/tasks' => 'tasks#create'
   # get 'tasks/new' => 'tasks#new'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   #
   # patch 'tasks/:id', to: 'tasks#update'
   # delete '/task/:id' => 'tasks#destroy'
+  # get '/sessions/welcome', to: "sessions#welcome", as: "welcome"
 
   resources :tasks
 
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create"
 
   delete "/sessions", to: "sessions#destroy", as: "logout"
+
 
 # Set up necessary controller(s) and route(s) that you will need in order to show a task from the database
 
