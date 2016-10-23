@@ -4,8 +4,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+grace:
+  name: "Grace Hooper"
+  email: "grace.hooper@adadevelopersacedemy.org"
+  uid: 12345
+  provider: "github"
+no_tasks_user:
+  name: "No Tasks"
+  email: "no_tasks@gmail.com"
+  uid: 67890
+  provider: "github"
