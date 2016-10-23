@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
-skip_before_action :require_login, only: [:login, :create, :welcome]
+skip_before_action :require_login, only: [:create, :welcome]
 
   def welcome
-    # if the user is already logged in and tres to go to the root path, redirect them to tasks homepage. 
+    # if the user is already logged in and tres to go to the root path, redirect them to tasks homepage.
     if session[:user_id]
       redirect_to tasks_path
     end

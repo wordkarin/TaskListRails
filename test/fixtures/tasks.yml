@@ -1,11 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  : 
-  : 
-  : 
+  title: "Grace needs to go shopping"
+  description: "Yep. She does."
+  completed: false
+  user: grace
 
 two:
-  : 
-  : 
-  : 
+  title: Two - completed.
+  description: "A completed thing, I swear."
+  completed_at: <%= 2.days.ago %>
+  completed: true
+  user: grace
