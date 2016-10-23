@@ -1,15 +1,39 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
+header {
+  background: linear-gradient( 45deg, #33cccc, #ffb3ff);
+  width: 70%;
+  position: relative;
+  padding: 10px 10px 30px 10px;
+  border-radius: 15px;
+  clear: both;
+}
+
+header h1, header td {
+  color: white;
+}
+
+header table {
+  float: right;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.task-list td {
+  border: black thin solid;
+}
+
+.new-task {
+  background-color: pink;
+  padding: 0.5px 10px 10px 10px;
+  border-radius: 15px;
+  width: 70%;
+}
+
+.task-list, .task {
+  background: linear-gradient( 45deg, #33cccc, #ffb3ff);
+  padding: 0.5px 10px 10px 10px;
+  border-radius: 15px;
+  width: 70%;
+}

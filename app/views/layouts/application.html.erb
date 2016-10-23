@@ -7,6 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h1> Tasks! </h1>
+      <table class="login">
+        <tr>
+          <!-- If not logged in -->
+          <% if session[:user_id].nil? %>
+          <td> You are not logged in.</td>
+          <td>
+            <%= button_to "Log in with Github", "/auth/github", method: :get %>
+          </td>
+          <!-- If logged in -->
+          <% else %>
+          <td>Welcome, <%= User.find(session[:user_id]).email %>!</td>
+          <td>
+            <%= button_to "Log out of TaskList", logout_path, method: :delete %>
+          </td>
+          <% end %>
+        </tr>
+      </table>
+  </header>
 
 <%= yield %>
 

@@ -10,15 +10,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-# create the database schema and tables with rake db:migrate
-# Each task record will include all of the following. Optional in this context means that the user may choose not to provide this information, but it is still required for your schema:
-  # Self-incrementing identifier (ID)
-  # title: the title of the task
-  # description: details about the task
-  # completed_at: the time and date the task was completed
 
-
-ActiveRecord::Schema.define(version: 20160928211341) do
+ActiveRecord::Schema.define(version: 20161017215440) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +20,15 @@ ActiveRecord::Schema.define(version: 20160928211341) do
     t.boolean  "completed"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "uid",        null: false
+    t.string   "provider",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
