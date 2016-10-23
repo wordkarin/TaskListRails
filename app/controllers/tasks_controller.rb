@@ -1,11 +1,22 @@
 class TasksController < ApplicationController
+  before_action :check_user, only: [:edit, :update, :completed, :destroy]
+
   def index
     # render :index is the default behavior.
-    @tasks = Task.order('completed ASC', 'completed_at DESC', 'created_at DESC')
+    @tasks = @current_user.tasks.order('completed ASC', 'completed_at DESC', 'created_at DESC')
   end
 
   def show
-    @this_task = Task.find(params[:id])
+    begin
+      task_requested = Task.find(params[:id])
+      if @current_user.tasks.include? Task.find(params[:id])
+        @this_task = task_requested
+      else
+        render "errors/wrong_user"
+      end
+    rescue ActiveRecord::RecordNotFound
+      render "/errors/not_found", status: :not_found
+    end
   end
 
   def new
@@ -16,6 +27,7 @@ class TasksController < ApplicationController
     new_task = Task.new
     new_task.title = params[:title]
     new_task.description = params[:description]
+    new_task.user_id = @current_user.id
     new_task.save
 
     redirect_to tasks_path
@@ -59,6 +71,13 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def check_user
+    unless @current_user.tasks.include? Task.find(params[:id])
+      render 'errors/wrong_user'
+    end
+  end
+
   def set_as_completed
     #I'm only calling this from the update and completed controller actions.
     @task.completed = true
