@@ -24,11 +24,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    new_task = Task.new
-    new_task.title = params[:title]
-    new_task.description = params[:description]
-    new_task.user_id = @current_user.id
-    new_task.save
+    @new_task = Task.new
+    @new_task.title = params[:title]
+    @new_task.description = params[:description]
+    @new_task.user_id = @current_user.id
+    @new_task.save
 
     redirect_to tasks_path
   end
